@@ -7,12 +7,17 @@ import fachkonzept.Medium;
 
 public class MediumSerializeDAO implements IMvDAO {
 
-	File speicherort = new File("C:/Users/Zen/Desktop/datB.txt");
-	File ladeort = new File("C:/Users/Zen/Desktop/datB.txt");
+	File speicherort;
+	File ladeort;
 
+	public MediumSerializeDAO(String SpeicherOrt,String LadeOrt){
+		
+		this.speicherort = new File(SpeicherOrt);
+		this.ladeort = new File(LadeOrt);
+	}
+		
 	public void speichern(List<Medium> liste) throws PersistenzException {
-		
-		
+			
 		ObjectOutputStream speicherStream = null;
 		FileOutputStream dateiStream = null;
 		
@@ -34,7 +39,6 @@ public class MediumSerializeDAO implements IMvDAO {
 		}	
 		
 	}
-
 
 	public List<Medium> laden() throws PersistenzException {
 		
@@ -65,5 +69,4 @@ public class MediumSerializeDAO implements IMvDAO {
 			
 		return Liste;
 	}
-
 }

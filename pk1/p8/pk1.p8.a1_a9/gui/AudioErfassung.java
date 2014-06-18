@@ -11,13 +11,11 @@ import fachkonzept.Medienverwaltung;
 
 public class AudioErfassung extends JDialog  {
 	
-
 	public AudioErfassung(final Medienverwaltung verwaltung, final List Liste){
 		super();
 		setModal(true);
 		setSize(350, 250);
 		setResizable(false);
-		
 		
 		JPanel up = new JPanel();
 		
@@ -30,7 +28,6 @@ public class AudioErfassung extends JDialog  {
 		
 		add(up, BorderLayout.CENTER);
 		add(down, BorderLayout.SOUTH);
-		
 		
 		JPanel Titel = new JPanel();
 		Titel.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -96,7 +93,6 @@ public class AudioErfassung extends JDialog  {
 				dispose();
 			}
 		});
-		
 		
 		Buttons.add(neu);
 		Buttons.add(abbrechen);

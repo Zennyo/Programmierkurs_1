@@ -10,14 +10,12 @@ import fachkonzept.Medienverwaltung;
 
 public class BildErfassung extends JDialog  {
 	
-
 	public BildErfassung(final Medienverwaltung verwaltung, final List Liste){
 		super();
 		setModal(true);
 		setSize(350, 200);
 		setResizable(false);
-		
-		
+			
 		JPanel up = new JPanel();
 		
 		up.setLayout(new FlowLayout(FlowLayout.TRAILING));
@@ -29,7 +27,6 @@ public class BildErfassung extends JDialog  {
 		
 		add(up, BorderLayout.CENTER);
 		add(down, BorderLayout.SOUTH);
-		
 		
 		JPanel Titel = new JPanel();
 		Titel.setLayout(new FlowLayout(FlowLayout.RIGHT));

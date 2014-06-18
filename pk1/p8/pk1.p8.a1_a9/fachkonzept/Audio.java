@@ -33,7 +33,7 @@ public class Audio extends Medium implements Serializable {
 	@Override
 	public void druckeDaten(OutputStream Stream){
 		
-		String daten = "ID = " + getID() + " \"" + getTitel() + "\" von: " + getInterpret() + " aus " + getJahr() + " Spieldauer: " + getDauer() + " Sekunden.\n";
+		String daten = "ID = " + getID() + " \"" + getTitel() + "\" von: " + getInterpret() + " aus " + getJahr() + " Spieldauer: " + getDauer() + " Sekunden.%n";
 		PrintStream Printer = new PrintStream(Stream);
 		Printer.printf(daten);
 	}

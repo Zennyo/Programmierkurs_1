@@ -18,19 +18,16 @@ import datenhaltung.PersistenzException;
 
 public class HauptFenster extends JFrame{
 	
-	
 	private final Medienverwaltung verwaltung;
 	private final List Liste = new List();
-	
-	
 	
 	public HauptFenster(final Medienverwaltung verwaltung){
 		super("Medienverwaltung");
 		this.verwaltung = verwaltung;
 			
-		
 		setSize(400, 400);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLayout(new BorderLayout());
 		
 		JMenuBar Leiste = new JMenuBar();
 		
@@ -153,17 +150,43 @@ public class HauptFenster extends JFrame{
 			}
 		});
 		
+		JMenuItem Beenden = 		new JMenuItem("Beenden");
+		Beenden.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				dispose();
+			}
+		});
+		
+		Laden.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L, Event.CTRL_MASK));
+		Speichern.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, Event.CTRL_MASK));
+		Schreiben.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, Event.ALT_MASK));
+		Audio.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, Event.CTRL_MASK));
+		Bild.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, Event.CTRL_MASK));
+		Erscheinung.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, Event.CTRL_MASK));
+		Neustes.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, Event.CTRL_MASK));
+		AlleAudio.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, Event.ALT_MASK));
+		AlleBilder.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, Event.ALT_MASK));
+		Beenden.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, Event.SHIFT_MASK));
+		
 		Datei.add(Speichern);
 		Datei.add(Laden);
 		Datei.add(Schreiben);
+		Datei.addSeparator();
+		Datei.add(Beenden);
+		Datei.setMnemonic(KeyEvent.VK_D);
 		
 		Medium.add(Audio);
 		Medium.add(Bild);
+		Medium.setMnemonic(KeyEvent.VK_M);
 		
 		Anzeige.add(Erscheinung);
 		Anzeige.add(Neustes);
+		Anzeige.addSeparator();
 		Anzeige.add(AlleAudio);
 		Anzeige.add(AlleBilder);
+		Anzeige.setMnemonic(KeyEvent.VK_A);
 		
 		Leiste.add(Datei);
 		Leiste.add(Medium);
@@ -173,20 +196,15 @@ public class HauptFenster extends JFrame{
 
 		JPanel Bereich = new JPanel();
 		Bereich.setLayout(new BorderLayout());
-		
-		Border randung = BorderFactory.createEtchedBorder();
+
 		Border titel = BorderFactory.createTitledBorder("Medienliste");
 		Bereich.setBorder(titel);
 	
 		datenAktualisieren(verwaltung, Liste);
 		
+		Bereich.add(Liste, BorderLayout.CENTER);
+		add(Bereich, BorderLayout.CENTER);
 		
-		JScrollPane Scroller = new JScrollPane(Liste);
-		
-		Bereich.add(Scroller, BorderLayout.CENTER);
-		
-		add(Bereich);
-	
 		setVisible(true);
 	}
 	

@@ -25,7 +25,7 @@ public class Bild extends Medium implements Serializable{
 	@Override
 	public void druckeDaten(OutputStream Stream){
 		
-		String daten = "ID = " + getID() + " \"" + getTitel() + "\" aufgenommen im Jahr " + getJahr() + " in " + getOrt() + "\n";
+		String daten = "ID = " + getID() + " \"" + getTitel() + "\" aufgenommen im Jahr " + getJahr() + " in " + getOrt() + "%n";
 		
 		PrintStream Printer = new PrintStream(Stream);
 		Printer.printf(daten);

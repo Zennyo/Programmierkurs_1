@@ -26,7 +26,6 @@ public class Tabelle extends JFrame {
 		JButton ok = new JButton("OK");
 		ok.addActionListener(new ActionListener() {
 			
-			
 			public void actionPerformed(ActionEvent arg0) {
 				setVisible(false);
 				dispose();
